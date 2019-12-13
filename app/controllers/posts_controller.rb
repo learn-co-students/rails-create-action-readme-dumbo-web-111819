@@ -1,3 +1,4 @@
+
 class PostsController < ApplicationController
   def index
     @posts = Post.all
@@ -11,10 +12,14 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   def create
-    @post = Post.create(params)
-    # @post.title = params[:title]
-    # @post.description = params[:description]
-    # @post.save
-     redirect_to post_path(@post)
+      # byebug
+    # @post = Post.create(params[:title])
+
+
+    @post = Post.new
+    @post.title = params[:title]
+    @post.description = params[:description]
+    @post.save
+     redirect_to posts_path
   end
 end
